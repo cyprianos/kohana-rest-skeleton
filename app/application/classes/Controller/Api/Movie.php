@@ -11,15 +11,15 @@ class Controller_Api_Movie extends Controller {
 	}
 	public function action_post()
 	{
-		$this->response->body('hello, world!');
+		$this->response->body('POST');
 	}
 	public function action_delete()
 	{
-		$this->response->body('hello, world!');
+		$this->response->body('DELETE');
 	}
 	public function action_put()
 	{
-		$this->response->body('hello, world!');
+		$this->response->body('PUT');
 	}
 
 } // End Welcome

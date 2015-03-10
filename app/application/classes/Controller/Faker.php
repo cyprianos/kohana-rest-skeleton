@@ -11,8 +11,16 @@ class Controller_Faker extends Controller {
 		for ($i=0; $i < $count; $i++) {
 			
 			$movie = new Model_Movie();
+			
 			$movie->title = $faker->name;
 			$movie->year = $faker->year($max='now');
+			
+			if($i%2===0) {
+				$movie->ip = $faker->ipv4;
+			} else {
+				$movie->ip = $faker->ipv6;
+			}
+
 			$movie->save();
 			echo "------------------Random movie nr $i------------------";
 			var_dump($movie->toObj());
@@ -23,13 +31,7 @@ class Controller_Faker extends Controller {
 				$rating = new Model_Rating();
 				// $value = 
 				$rating->value = $faker->randomDigitNotNull;
-				if($j%2===0) {
-
-					$rating->ip = $faker->ipv4;
-
-				} else {
-					$rating->ip = $faker->ipv6;
-				}
+				
 				$rating->movie_id = $movie->id;
 				$rating->save();
 				echo "Random rating nr $j ";

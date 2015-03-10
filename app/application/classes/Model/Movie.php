@@ -5,7 +5,8 @@ class Model_Movie extends ORM
     protected $_table_columns = array(
     	'id' => NULL,
     	'title'=> NULL,
-    	'year' => NULL
+    	'year' => NULL,
+    	'ip' => NULL,
 	);
 	protected $_has_many = array(
 		'ratings'=>array(

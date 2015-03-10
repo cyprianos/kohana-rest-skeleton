@@ -21,6 +21,4 @@ class Model_Rating extends ORM
 		// Proxy to database
 		return $this->_table_columns;
 	}
-
-	
 }

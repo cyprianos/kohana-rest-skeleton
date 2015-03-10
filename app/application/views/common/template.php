@@ -9,44 +9,71 @@
 </head>
 <body>
 	
-<div class="container-fluid">
-	<h1>Movie database</h1>
-	<h2>A basic movie database as a practical test</h2>
-	<table data-page-size="50" data-page-navigation=".pagination" class="footable table table-striped table-hover table-condensed" id="movieTable">
-		<thead>
-			<tr>
-				<td colspan="5">
-					<ul class="pagination paginatiom-sm"></ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Title</th>
-				<th data-hide="phone">Year</th>
-				<th data-hide="phone,tablet">Rating</th>
-				<th data-hide="phone,tablet">Last Ip</th>
-			</tr>
-		</thead>
-		<tbody>
-			
-		</tbody>
-		<tfoot class="hide-if-no-paging">
-			<tr>
-				<td colspan="5">
-					<ul class="pagination paginatiom-sm"></ul>
-				</td>
-			</tr>
-		</tfoot>
-	</table>
-</div>
+	<div class="container-fluid">
+		<h1>Movie database</h1>
+		<h2>Add new movie to database</h2>
+		
+		<form id="formMovie" class="form-horizontal">
+			<div class="form-group">
+				<label for="inputTitle" class="col-sm-2 control-label">Title</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="title" id="inputTitle" placeholder="Title">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputYear" class="col-sm-2 control-label">Year</label>
+					<div class="col-sm-10">
+				<input type="text" class="form-control" name="year" id="inputYear" placeholder="Year">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" id="addMovie" class="btn btn-default">Add</button>
+				</div>
+			</div>
+		</form>
+
+		
+	</div>
+
 	<script type="text/javascript" src="vendor/handlebars/handlebars.min.js"></script>
 	<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="vendor/footable/dist/footable.all.min.js"></script>
 
 	<script type="text/javascript" src="ass/js/app.js"></script>
+	
 	<script id="movieRow" type="text/x-handlebars-template">
-	{{#each this}}
-		<tr><td>{{id}}. {{title}}</td><td>{{year}}</td><td>rating</td><td>ip</td></tr>
-	{{/each}}
+		<tr><td>{{id}}. {{title}}</td><td>{{year}}</td><td>rating</td><td class="text-right">{{ip}}</td></tr>
+	</script>
+	<script id="movieTable" type="text/x-handlebars-template">
+		<h2>Recent Movies</h2>
+		<table data-page-size="50" data-page-navigation=".pagination" class="footable table table-striped table-hover table-condensed" id="movieTable">
+			<thead>
+				<tr>
+					<td colspan="5">
+						<ul class="pagination paginatiom-sm"></ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Title</th>
+					<th data-hide="phone">Year</th>
+					<th data-hide="phone,tablet">Rating</th>
+					<th data-hide="phone,tablet">Ip</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each this}}
+					{{> movieRow }}
+				{{/each}}
+			</tbody>
+			<tfoot class="hide-if-no-paging">
+				<tr>
+					<td colspan="5">
+						<ul class="pagination paginatiom-sm"></ul>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
 	</script>
 	</body>
 </html>

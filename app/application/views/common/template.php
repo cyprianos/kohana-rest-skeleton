@@ -17,13 +17,13 @@
 			<div class="form-group">
 				<label for="inputTitle" class="col-sm-2 control-label">Title</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="title" id="inputTitle" placeholder="Title">
+					<input minlength="3" required type="text" class="form-control" name="title" id="inputTitle" placeholder="Title">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputYear" class="col-sm-2 control-label">Year</label>
+				<label required for="inputYear" class="col-sm-2 control-label">Year</label>
 					<div class="col-sm-10">
-				<input type="text" class="form-control" name="year" id="inputYear" placeholder="Year">
+				<input minlength="4" required type="text" class="form-control" name="year" id="inputYear" placeholder="Year">
 				</div>
 			</div>
 			<div class="form-group">
@@ -35,9 +35,9 @@
 
 		
 	</div>
-
-	<script type="text/javascript" src="vendor/handlebars/handlebars.min.js"></script>
 	<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="vendor/handlebars/handlebars.min.js"></script>
+	<script type="text/javascript" src="vendor/jquery-validation//dist/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="vendor/footable/dist/footable.all.min.js"></script>
 
 	<script type="text/javascript" src="ass/js/app.js"></script>

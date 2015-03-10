@@ -9,7 +9,6 @@ class Controller_Api_Movie extends Controller {
 		$ret = json_encode($ret);
 		
 		$this->response->body($ret);
-	
 	}
 	public function action_post()
 	{

@@ -1,0 +1,10 @@
+{
+	"require": {
+		"phpunit/phpunit": "3.7.24",
+		"phing/phing": "dev-master",
+		"fzaninotto/faker": "1.4.0"
+	},
+	"config": {
+		"vendor-dir": "app/vendor"
+	}
+}

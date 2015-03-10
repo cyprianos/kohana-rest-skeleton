@@ -1,0 +1,7 @@
+app/vendor
+app/application/cache
+app/application/logs
+app/public/vendor
+nohup.out
+*.swp
+*.bak

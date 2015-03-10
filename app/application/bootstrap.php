@@ -160,7 +160,7 @@ Route::set('rest-api', 'api/(<controller>)')
 Route::set('faker', 'setup/(<count>)')
 	->defaults(array(
 		'controller' => 'faker',
-		'action'     => 'setup',
+		'action'     => 'setup'
 	));
 
 

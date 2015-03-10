@@ -1,18 +1,19 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Model_Movie extends ORM
+class Model_Rating extends ORM
 {
     protected $_table_columns = array(
     	'id' => NULL,
-    	'title'=> NULL,
-    	'year' => NULL
+    	'value'=> NULL,
+    	'ip' => NULL,
+    	'movie_id' => NULL
 	);
-	protected $_has_many = array(
-		'ratings'=>array(
-			'model' => 'movie',
-			'foreign' => 'movie_id'
-		)
 
+	protected $_belongs_to = array(
+		'movie' => array(
+			'model'=>'movie',
+			'foreign_key'=>'movie_id'
+		)
 	);
 
 	public function list_columns()

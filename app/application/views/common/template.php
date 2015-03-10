@@ -21,9 +21,9 @@
 			</tr>
 			<tr>
 				<th>Title</th>
-				<th  data-hide="phone">Year</th>
+				<th data-hide="phone">Year</th>
 				<th data-hide="phone,tablet">Rating</th>
-				<th data-hide="phone,tablet">Ip</th>
+				<th data-hide="phone,tablet">Last Ip</th>
 			</tr>
 		</thead>
 		<tbody>

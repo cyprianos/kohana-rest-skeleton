@@ -2,6 +2,8 @@
 	$(document).ready(function(){
 		var movieView = $('#movieTable').html(),
     		movieTemplate = Handlebars.compile(movieView),
+    		movieRowView = $('#movieRow').html(),
+    		movieRowTemplate = Handlebars.compile(movieRowView),
     		form = $('#formMovie');
 
     	Handlebars.registerPartial('movieRow', $('#movieRow').html());
@@ -40,18 +42,27 @@
 
 		$('#formMovie').on('submit', function(e){
 			if(form.valid()){
-
 				e.preventDefault();
-				var str = $(this).serialize();
 
+				
 
 				$.ajax({
 					url: 'api/movie',
 					type: 'POST',
-					data: str,
+					data: form.serialize(),
 					success: function(data){
-						//TODO APPEND ONE ROW
-						console.log('render', data);
+
+
+						view = movieRowTemplate(JSON.parse(data));
+					
+						var footable = $('.footable').data('footable');
+						var pages = footable.pageInfo.pages;
+						var last = pages.length-1;
+
+						var page = $('.footable').data('currentPage',last);
+					
+						footable.appendRow(view);
+
 					}
 				});
 			}
@@ -69,5 +80,15 @@
 				$('.footable').footable();
             }
         });
+
+        function formValues(form) {
+        	var arr = form.serializeArray(),
+    			obj = {};
+
+			for(var i=0; i< arr.length; i++){
+				obj[arr[i]['name']] = arr[i]['value'];
+			}
+			return obj;
+        }
 	});
 }(this, jQuery));

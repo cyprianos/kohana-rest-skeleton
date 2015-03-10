@@ -22,18 +22,23 @@
 			</div>
 			<div class="form-group">
 				<label required for="inputYear" class="col-sm-2 control-label">Year</label>
-					<div class="col-sm-10">
-				<input minlength="4" required type="text" class="form-control" name="year" id="inputYear" placeholder="Year">
+				<div class="col-sm-10">
+					<input minlength="4" required type="text" class="form-control" name="year" id="inputYear" placeholder="Year">
 				</div>
 			</div>
+			<div class="form-group">
+				<label required for="inputDescription" class="col-sm-2 control-label">Description</label>
+				<div class="col-sm-10">
+					<textarea id="inputDescription" name="description" required minlength="20" placeholder="Description" class="form-control" rows="3"></textarea>
+				</div>
+			</div>
+
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="submit" id="addMovie" class="btn btn-default">Add</button>
 				</div>
 			</div>
 		</form>
-
-		
 	</div>
 	<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="vendor/handlebars/handlebars.min.js"></script>
@@ -43,7 +48,7 @@
 	<script type="text/javascript" src="ass/js/app.js"></script>
 	
 	<script id="movieRow" type="text/x-handlebars-template">
-		<tr><td>{{id}}. {{title}}</td><td>{{year}}</td><td>rating</td><td class="text-right">{{ip}}</td></tr>
+		<tr><td>{{id}}</td><td>{{title}}</td><td>{{year}}</td><td>rating</td><td class="text-right">{{ip}}</td><td>{{description}}</td></tr>
 	</script>
 	<script id="movieTable" type="text/x-handlebars-template">
 		<h2>Recent Movies</h2>
@@ -55,10 +60,13 @@
 					</td>
 				</tr>
 				<tr>
+					
+					<th data-hide="all">Id</th>
 					<th>Title</th>
 					<th data-hide="phone">Year</th>
 					<th data-hide="phone,tablet">Rating</th>
 					<th data-hide="phone,tablet">Ip</th>
+					<th data-hide="all">Description</th>
 				</tr>
 			</thead>
 			<tbody>

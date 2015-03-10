@@ -1,6 +1,7 @@
 (function(global,$){
 	$(document).ready(function(){
-		var movieView = $('#movieTable').html(),
+		var viewport = $('.container-fluid'),
+			movieView = $('#movieTable').html(),
     		movieTemplate = Handlebars.compile(movieView),
     		movieRowView = $('#movieRow').html(),
     		movieRowTemplate = Handlebars.compile(movieRowView),
@@ -76,7 +77,7 @@
         		var data = JSON.parse(data),
         			view = movieTemplate(data);
 
-				$('body').append(view).trigger('footable_redraw');
+				viewport.append(view).trigger('footable_redraw');
 				$('.footable').footable();
             }
         });

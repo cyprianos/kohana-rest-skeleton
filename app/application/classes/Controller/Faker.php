@@ -14,6 +14,7 @@ class Controller_Faker extends Controller {
 			
 			$movie->title = $faker->name;
 			$movie->year = $faker->year($max='now');
+			$movie->description = $faker->text;
 			
 			if($i%2===0) {
 				$movie->ip = $faker->ipv4;

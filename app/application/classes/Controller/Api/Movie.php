@@ -17,6 +17,7 @@ class Controller_Api_Movie extends Controller {
 		$movie->title = $this->request->post('title');
 		$movie->year = intval($this->request->post('year'));
 		$movie->ip = Request::$client_ip;
+		$movie->description = $this->request->post('description');
 		
 		$movie->save();
 		

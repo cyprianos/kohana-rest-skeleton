@@ -7,6 +7,7 @@ class Model_Movie extends ORM
     	'title'=> NULL,
     	'year' => NULL,
     	'ip' => NULL,
+    	'description'=>NULL
 	);
 	protected $_has_many = array(
 		'ratings'=>array(

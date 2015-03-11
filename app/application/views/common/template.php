@@ -42,13 +42,13 @@
 	</div>
 	<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="vendor/handlebars/handlebars.min.js"></script>
-	<script type="text/javascript" src="vendor/jquery-validation//dist/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="vendor/jquery-validation/dist/jquery.validate.js"></script>
 	<script type="text/javascript" src="vendor/footable/dist/footable.all.min.js"></script>
 
 	<script type="text/javascript" src="ass/js/app.js"></script>
 	
 	<script id="movieRow" type="text/x-handlebars-template">
-		<tr><td>{{id}}</td><td>{{title}}</td><td>{{year}}</td><td>rating</td><td class="text-right">{{ip}}</td><td>{{description}}</td></tr>
+		<tr><td>{{title}}</td><td>{{id}}</td><td>{{year}}</td><td class="text-right">{{rating}}</td><td class="text-right">{{ip}}</td><td>{{description}}</td></tr>
 	</script>
 	<script id="movieTable" type="text/x-handlebars-template">
 		<h2>Recent Movies</h2>
@@ -61,8 +61,9 @@
 				</tr>
 				<tr>
 					
-					<th data-hide="all">Id</th>
+					
 					<th>Title</th>
+					<th data-hide="all">Id</th>
 					<th data-hide="phone">Year</th>
 					<th data-hide="phone,tablet">Rating</th>
 					<th data-hide="phone,tablet">Ip</th>

@@ -4,9 +4,27 @@ class Controller_Api_Movie extends Controller {
 
 	public function action_get()
 	{
-		$ret = ORM::collection(ORM::factory('Movie'));
+		
+		$collection = ORM::factory('Movie')->find_all();
+		$ret=[];
+		
+		foreach($collection as $item) {
+
+			$ratings = ORM::collection($item->ratings);
+			$sum = array_reduce($ratings, function($all, $rating){
+				return $all+=$rating->value;
+			});
+			$avg = $sum/(count($ratings));
+
+			$obj = $item->toObj();
+			$obj->rating = round($avg,2);
+			array_push($ret, $obj);
+
+		}
 		
 		$ret = json_encode($ret);
+
+
 		
 		$this->response->body($ret);
 	}

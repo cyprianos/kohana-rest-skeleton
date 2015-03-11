@@ -37,11 +37,16 @@
     				required: true,
     				min: 1901,
     				max: 2100
+    			},
+    			description:{
+    				required: true,
+    				minlength:20,
+    				maxlength:500
     			}
     		}
     	});
 
-		$('#formMovie').on('submit', function(e){
+		form.on('submit', function(e){
 			if(form.valid()){
 				e.preventDefault();
 
@@ -54,15 +59,21 @@
 					success: function(data){
 
 
-						view = movieRowTemplate(JSON.parse(data));
+						var view = movieRowTemplate(JSON.parse(data));
 					
 						var footable = $('.footable').data('footable');
-						var pages = footable.pageInfo.pages;
-						var last = pages.length-1;
-
-						var page = $('.footable').data('currentPage',last);
+						
 					
 						footable.appendRow(view);
+						form.trigger('reset');
+						// viewport.trigger('footable_redraw');
+
+
+						// var pages = $('.footable').data('footable').pageInfo.pages;
+						// var last = pages.length-1;
+
+						// var page = $('.footable').data('currentPage',last+1);
+						// viewport.trigger('footable_redraw');
 
 					}
 				});

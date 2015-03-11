@@ -9,22 +9,10 @@ class Controller_Api_Movie extends Controller {
 		$ret=[];
 		
 		foreach($collection as $item) {
-
-			$ratings = ORM::collection($item->ratings);
-			$sum = array_reduce($ratings, function($all, $rating){
-				return $all+=$rating->value;
-			});
-			$avg = $sum/(count($ratings));
-
-			$obj = $item->toObj();
-			$obj->rating = round($avg,2);
-			array_push($ret, $obj);
-
+			array_push($ret, $item->withRatings());
 		}
-		
+
 		$ret = json_encode($ret);
-
-
 		
 		$this->response->body($ret);
 	}
@@ -45,13 +33,13 @@ class Controller_Api_Movie extends Controller {
 		
 		
 	}
-	public function action_delete()
-	{
-		$this->response->body('DELETE');
-	}
-	public function action_put()
-	{
-		$this->response->body('PUT');
-	}
+	// public function action_delete()
+	// {
+	// 	$this->response->body('DELETE');
+	// }
+	// public function action_put()
+	// {
+	// 	$this->response->body('PUT');
+	// }
 
 } // End Welcome

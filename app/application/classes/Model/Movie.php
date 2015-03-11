@@ -22,6 +22,20 @@ class Model_Movie extends ORM
 		return $this->_table_columns;
 	}
 
+	public function withRatings() {
+			$ratings = ORM::collection($this->ratings);
+			$sum = array_reduce($ratings, function($all, $rating){
+				return $all+=$rating->value;
+			});
+
+			$c = count($ratings);
+			$avg = ($c > 0) ? $sum/$c : 0;
+
+			$obj = $this->toObj();
+			$obj->rating = round($avg,2);
+			return $obj;
+	}
+
 	// public function getRating() {
 		
 	// 	$sum = 0;

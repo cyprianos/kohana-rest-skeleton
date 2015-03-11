@@ -56,14 +56,14 @@ approximately ~5000 ratings)
 	- CSRF(one time password, but it is impossible to prevent all CSRF attacks because human factor is most important here)
 	- Cookies(don't use cookies if you don't want problems with cookies, it is also rather human issue, you can use localstorage instead but it is also insecure)
 
-2. it depends on the project, but generally most scalable option is to separate files into separate modules directories, every module have it's own controller/model/view directories. Also you need some dependency injection system
+2. it depends on the project, but generally the most scalable option is to separate files into separate modules directories, every module have it's own controller/model/view directories. Also you need some dependency injection system.
 3. Fasade, Decorator, Publish Subscriber, Singleton. I don't want to write tutorial about this, but generally I use patterns when i need them. Fasade - when i need one api for multiple functions, decorator - when i need new functionality in runtime, publish subscriber - when i need an event system and more asynchronic approach in code management, singleton - when i need only one instance of class.
 4. Better code organization(logic and view separation), routing system and helper libraries.  
-Generally i prefer small REST frameworks like ExpressJS/Ruby Sinatra/Slim for Single Page Applications, Kohana for smaller projects and Zend/Symfony for bigger projects.
+Generally i prefer small REST frameworks like ExpressJS/Ruby Sinatra/Slim for Single Page Applications, Kohana/Express JS/Rails for smaller MVC projects and Zend/Symfony/Rails for bigger projects.
 
-5. I didn't know this term before the test
+5. I didn't know this term before the test.
 
-6. In funcitonal programming you functions are objects, you can create it in runtime, return it, pass as paramters and of course call it like in functionals in mathematic. In object programming you use methods(API) which are related to your class or even object(like in Javascript which is both functional and OOP). In procedural programming you create procedures which you call one after another but they are unrelated to objects.
+6. In funcitonal programming you functions are objects, you can create it in runtime, return it, pass as parameters and of course call it like in functionals in mathematic. In object programming you use methods(API) which are related to your class or even object(like in Javascript which is both functional and OOP). In procedural programming you create procedures which you call one after another but they are unrelated to objects.
 
 7.Performance. PHP has one of the slowest interpreted languages enviroments. Community - changes in PHP are very slow and comparing to ruby gems and node js, PHP libraries are buggy, unfriendly, hard to learn, too specific, incompleted and obsolete. Of course there is a great tool 'composer' but it is not enough.
 
